@@ -142,6 +142,20 @@ nav a.active {
     color: #007bff;
 }
 
+.highlight-wrapper {
+    background-color: #f0f8ff; /* Light blue */
+    padding: 10px;
+    border-left: 4px solid #007bff; /* Accent color */
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.highlight-wrapper > p {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+}
+
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -165,19 +179,43 @@ nav a.active {
     opacity: 0.9;
 }
 
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    list-style-type: none;
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
-.skills-list li {
-    background-color: #4a90e2;
-    color: white;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 20px;
+.skill-card {
+background-color: #f0f0f0;
+border-radius: 8px;
+padding: 15px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s;
+}
+
+.skill-card:hover {
+transform: translateY(-5px);
+}
+
+.icon-holder {
+display: flex;
+align-items: center;
+margin-bottom: 10px;
+}
+
+.skill-title {
+margin-left: 10px;
+font-weight: bold;
+}
+
+.desc-container {
+margin-bottom: 10px;
+}
+
+.rating-holder i {
+color: #ffd700; /* Gold color for stars */
+margin-right: 2px;
 }
 
 .project-grid {
