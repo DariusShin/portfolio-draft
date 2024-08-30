@@ -3,34 +3,45 @@
     scroll-behavior: smooth;
 }
 
-* {
+*,
+*::before,
+*::after {
     /* Global settings */
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
     font-optical-sizing: auto;
-}
-
-h1, h2 {
-    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 body {
     /* Light Theme - Color Scheme*/
-    --bg-color: #EDF2F7;
+    --accent-color: #5619d1;
+    --header-color: #f1f1f1;
+    --bg-color: #F1F7FC;
     --primary-font-color: #0D0D0D;
-    --card-color: #dddddd;
+    --secondary-font-color: #656667;
+    --tertiary-font-color: #A1ABB7;
+    --button-color: #e6e8ea;
+    --button-font-color: #F1F3F5;
+    --card-color: #DDDDDD;
     
     background-color: var(--bg-color);
     color: var(--primary-font-color);
-    transition: background-color 0.3s, color 0.3s;
 }
 
 /* For manual toggle */
 body.dark {
-    --bg-color: #07080B;
-    --primary-font-color: #EFF5FB;
+    --accent-color: #5619d1c4;
+    --bg-color: #121212;
+    --header-color: #181D23;
+    --primary-font-color: #E0E0E0;
+    --secondary-font-color: #B0B0B0;
+    --tertiary-font-color: #8A8F99;
+    --button-color: #202225;
+    --button-font-color: #D1D3D5;
     --card-color: #363535;
+    
 }
 
 /* Handler for user enter the site with dark mode in their system setting */
@@ -66,16 +77,112 @@ body.dark {
     }
 }
 
-.logo-holder {
-    .logo-title {
-        font-family: "Pixelify Sans", sans-serif;
+header {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    padding: 20px;
+    width: 100vmax;
+    height: 10vmin;
+    background: var(--header-color);
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid red;
+
+    .logo-holder {
+        display: flex;
+        font-size: 1.5rem;
+        gap: 1em;
+        justify-content: flex-start;
+        align-items: center;
+        border: 1px solid red;
     }
 
-    .logo img {
-        max-width: 100%; /* Ensure images do not exceed their container */
-        height: auto; /* Maintain aspect ratio */
+    img {
+        width: 5vmin; height: auto;
+    }
+
+    .logo-title {
+        font-family: "MuseoModerno", sans-serif;
+        font-weight: bold;
+        color: var(--accent-color);
+    }
+
+    nav > #menu {
+        display: flex;
+        gap: 2em;
+        align-items: center;
+        list-style-type: none;
+    }
+    li > a{
+        text-decoration:none; 
+        cursor:pointer;
+
+        & > span {
+            color: var(--secondary-font-color);
+        }
+    }
+
+    .scroll-link {
+        font-size: 0.85em;
+        background: linear-gradient(to right, #8d73c3, #6744ae, #400ea3) no-repeat right bottom;
+        background-size: 0 4px;
+        transition: background-size 0.3s;
+
+        &:hover {
+            background-position: left bottom;
+            background-size: 100% 2px;
+        }
+        
+    }
+
+    .active-link {
+        background-size: 100% 2px;
+    }
+    
+    .button-contact > span{
+        color: var(--button-font-color);
+        padding: 0.5em 1em;
+        font-size: 0.85em;
+        background: var(--accent-color);
+        border-radius: 50px;
+        transition: 0.5s ease-in-out;
+
+        &:hover {
+            background-color: rgba(86, 25, 209, 0.1);
+            color: var(--accent-color);
+            font-size: 0.9em;
+        }
+    }
+
+    .button-toggle {
+        width: 50px; height: 50px;
+        padding: 0;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--button-color);
+        /* border: 1px solid red; */
+
+        svg {
+            fill: var(--secondary-font-color);
+            height: 3vmax;
+        }
+
+        svg:last-child{
+            display: none;
+        }
     }
 }
+
+.dark .button-toggle svg:first-child{
+    display: none;
+}
+.dark .button-toggle svg:last-child{
+    display: block;
+}
+
 
 .intro-text {
     flex: 1;
