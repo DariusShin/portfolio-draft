@@ -28,13 +28,13 @@
         <div class="logo-holder">
             <img src="./assets/images/Portfolio_Logo-nobackground.png" alt="">
             <div class="logo-title">
-                D.L.S
+                <span>Darius</span>
             </div>
         </div>
         <!-- navigation bar -->
         <nav>
             <ul id="menu">
-                <li><a href="#home"><span class="scroll-link">Home</span></a></li>
+                <li><a href="#home"><span class="scroll-link active-link">Home</span></a></li>
                 <li><a href="#about"><span class="scroll-link">About</span></a></li>
                 <li><a href="#skills"><span class="scroll-link">Skills</span></a></li>
                 <li><a href="#projects"><span class="scroll-link">Projects</span></a></li>
@@ -48,21 +48,45 @@
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#434343"><path d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM80-440q-17 0-28.5-11.5T40-480q0-17 11.5-28.5T80-520h80q17 0 28.5 11.5T200-480q0 17-11.5 28.5T160-440H80Zm720 0q-17 0-28.5-11.5T760-480q0-17 11.5-28.5T800-520h80q17 0 28.5 11.5T920-480q0 17-11.5 28.5T880-440h-80ZM480-760q-17 0-28.5-11.5T440-800v-80q0-17 11.5-28.5T480-920q17 0 28.5 11.5T520-880v80q0 17-11.5 28.5T480-760Zm0 720q-17 0-28.5-11.5T440-80v-80q0-17 11.5-28.5T480-200q17 0 28.5 11.5T520-160v80q0 17-11.5 28.5T480-40ZM226-678l-43-42q-12-11-11.5-28t11.5-29q12-12 29-12t28 12l42 43q11 12 11 28t-11 28q-11 12-27.5 11.5T226-678Zm494 495-42-43q-11-12-11-28.5t11-27.5q11-12 27.5-11.5T734-282l43 42q12 11 11.5 28T777-183q-12 12-29 12t-28-12Zm-42-495q-12-11-11.5-27.5T678-734l42-43q11-12 28-11.5t29 11.5q12 12 12 29t-12 28l-43 42q-12 11-28 11t-28-11ZM183-183q-12-12-12-29t12-28l43-42q12-11 28.5-11t27.5 11q12 11 11.5 27.5T282-226l-42 43q-11 12-28 11.5T183-183Z"/></svg>
         </div>
     </header>
+
     <!-- section 1: Home -->
     <section id="home" class="main-section">
         <div class="home-container">
             <div class="intro-text">
-                <h1>Welcome to My Portfolio</h1>
-                <h2>Darius Lee Shin</h2>
+                <p class="welcoming-text">~ Hello! Welcome to My Portfolio Website!</p>
+                <h1>I'm <span class="hightlight-text">Darius Lee Shin</span></h1>
+                <h2>A Passionate <span class="typing-text">Web Development Learner</span><br/>based in Malaysia.</h2>
                 <p><q class="tagline">Building a Strong Foundation, One Line of Code at a Time</q></p>
-                <p>Hi, I'm a Computer Science student at Universiti Teknologi PETRONAS (UTP), passionate about creating amazing digital experiences. I believe in mastering the basics, collaborating effectively, and continuously improving my skills to become an exceptional web developer.</p>
                 <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Projects</a>
-                    <a href="path/to/your/resume.pdf" class="btn btn-secondary" download>Download CV</a>
+                    <a href="#projects" class="btn button-project">View My Projects</a>
+                    <a href="path/to/your/resume.pdf" class="btn btn-download" download>Download CV</a>
                 </div>
             </div>
             <div class="img-holder">
-                <img src="./assets/images/DariusLeeShinProfilePicture.png" alt="Darius Lee Shin - Computer Science Student and Aspiring Web Developer">
+                <div class="img-box">
+                    <img src="./assets/images/DariusLeeShinProfilePicture.png" alt="Darius Lee Shin - Computer Science Student and Aspiring Web Developer">
+                </div>
+                <div class="liquid-shape">
+                    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+                        <path fill="#c1a6f7">
+                            <animate attributeName="d"
+                                dur="10000ms"
+                                repeatCount="indefinite"
+                                values="
+                                    M393,294.5Q372,339,335,368.5Q298,398,241.5,423.5Q185,449,134.5,410Q84,371,68.5,310.5Q53,250,69.5,190.5Q86,131,140,104.5Q194,78,247,87.5Q300,97,372.5,102.5Q445,108,429.5,179Q414,250,393,294.5Z;
+                                    
+                                    M426.5,306Q404,362,360,407Q316,452,252,447Q188,442,141.5,402.5Q95,363,49,306.5Q3,250,61.5,203Q120,156,151,98.5Q182,41,240,72Q298,103,356,117Q414,131,431.5,190.5Q449,250,426.5,306Z;
+                                    
+                                    M467.5,317.5Q436,385,372,407Q308,429,255.5,412Q203,395,151,377.5Q99,360,68.5,305Q38,250,80.5,204Q123,158,151,95.5Q179,33,252.5,24.5Q326,16,356.5,83.5Q387,151,443,200.5Q499,250,467.5,317.5Z;
+                                    
+                                    M403,298Q382,346,345,386.5Q308,427,252.5,420Q197,413,134,396.5Q71,380,44.5,315Q18,250,56,193Q94,136,144,107.5Q194,79,256,60Q318,41,352,96Q386,151,405,200.5Q424,250,403,298Z;
+                                    
+                                    M425.41985,296.84035Q378.90761,343.68071,345.7731,392.68479Q312.63859,441.68887,249.02106,445.12569Q185.40353,448.56252,138.63859,406.55028Q91.87365,364.53803,77.74323,307.26902Q63.6128,250,72.23506,188.36141Q80.85733,126.72282,132.40353,87.01289Q183.94972,47.30297,251.36141,42.99184Q318.7731,38.68071,350.06725,96.38655Q381.36141,154.09239,426.64675,202.0462Q471.93209,250,425.41985,296.84035Z;
+                                "
+                            ></animate>
+                        </path>
+                    </svg>
+                </div>
             </div>
         </div>
     </section>
