@@ -1,20 +1,7 @@
 :root {
     color-scheme: light dark; /* Allow both light and dark color scheme from system */
     scroll-behavior: smooth;
-}
 
-*,
-*::before,
-*::after {
-    /* Global settings */
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    font-optical-sizing: auto;
-    box-sizing: border-box;
-}
-
-body {
     /* Light Theme - Color Scheme*/
     --accent-color: #5619d1;
     --header-color: #f1f1f1;
@@ -29,15 +16,10 @@ body {
     --button-font-color: #F1F3F5;
     --repeating-grid-color: #8d8d8d1a;
     --card-color: #ededed;
-    
-    background-color: var(--bg-color);
-    color: var(--primary-font-color);
-    background-image: repeating-linear-gradient(to right, transparent 0 49px, var(--repeating-grid-color) 49px 50px),
-    repeating-linear-gradient(to bottom, transparent 0 49px, var(--repeating-grid-color) 49px 50px);
 }
 
 /* For manual toggle */
-body.dark {
+html > body.dark {
     --accent-color: #7e3dffc4;
     --bg-color: #0b1215;
     --header-color: #181D23;
@@ -48,6 +30,24 @@ body.dark {
     --button-font-color: #D1D3D5;
     --repeating-grid-color: #cfcdcd0b;
     --card-color: #363535;
+}
+
+*,
+*::before,
+*::after {
+    /* Global settings */
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-optical-sizing: auto;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--primary-font-color);
+    background-image: repeating-linear-gradient(to right, transparent 0 49px, var(--repeating-grid-color) 49px 50px),
+    repeating-linear-gradient(to bottom, transparent 0 49px, var(--repeating-grid-color) 49px 50px);
 }
 
 /* Handler for user enter the site with dark mode in their system setting */
