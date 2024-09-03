@@ -17,8 +17,10 @@ DOMS.scrollLinks.forEach(link => {
         document.querySelectorAll('.scroll-link').forEach(item => {
             item.classList.remove('active-link');
         });
-        // Add 'active-link' class to the clicked link
-        this.classList.add('active-link');
+        // Add 'active-link' class to the clicked link except for the 'Download CV' link
+        if (this.textContent !== 'Download CV'){
+            this.classList.add('active-link');
+        }
     });
 });
 

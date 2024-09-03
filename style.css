@@ -4,18 +4,18 @@
 
     /* Light Theme - Color Scheme*/
     --accent-color: #5619d1;
-    --header-color: #f1f1f1;
-    --bg-color: #F1F7FC;
+    --header-color: #FFFFFF;
+    --bg-color: #F9FAFC;
     --primary-font-color: #0D0D0D;
     --secondary-font-color: #555656;
     --tertiary-font-color: #929ca7;
     
     /* --gradient-color: linear-gradient(to right, #8d73c3, #6744ae, #400ea3); */
     --gradient-color: linear-gradient(to right, #b89ef4, #906ce4 , #5f2dc2bf, #5722c3);
-    --button-color: #e6e8ea;
+    --button-color: #EEF2F7;
     --button-font-color: #F1F3F5;
     --repeating-grid-color: #8d8d8d1a;
-    --card-color: #ededed;
+    --card-color: #F0F4F9;
 }
 
 /* For manual toggle */
@@ -43,6 +43,26 @@ html > body.dark {
     box-sizing: border-box;
 }
 
+h1 {
+    font-size: 2.5em;
+    font-size: clamp(2em, 2vw + 1em, 3em);
+    color: var(--primary-font-color);
+}
+
+h2 {
+    font-size: 1.75em;
+    font-size: clamp(1.5em, 1.5vw + 0.5em, 2em);
+    color: var(--secondary-font-color);
+}
+
+p {
+    margin-top: 2em;
+    max-width: 600px;
+    padding: 10px 0 20px 0;
+    color: var(--tertiary-font-color);
+    font-size: clamp(0.75em, 0.9vw + 0.1em, 1.5em);
+}
+
 body {
     background-color: var(--bg-color);
     color: var(--primary-font-color);
@@ -54,8 +74,15 @@ body {
 @media (prefers-color-scheme: dark) {
     body {
         /* Dark Theme - Color Scheme*/
-        --bg-color: #07080B;
-        --primary-font-color: #EFF5FB;
+        --accent-color: #7e3dffc4;
+        --bg-color: #0b1215;
+        --header-color: #181D23;
+        --primary-font-color: #d6d6d6;
+        --secondary-font-color: #B0B0B0;
+        --tertiary-font-color: #8A8F99;
+        --button-color: #202225;
+        --button-font-color: #D1D3D5;
+        --repeating-grid-color: #cfcdcd0b;
         --card-color: #363535;
     }
 }
@@ -93,7 +120,6 @@ header {
     background: var(--header-color);
     justify-content: space-around;
     align-items: center;
-    border: 1px solid red;
     z-index: 10;
 
     & .logo-holder {
@@ -102,7 +128,6 @@ header {
         gap: 1em;
         justify-content: flex-start;
         align-items: center;
-        border: 1px solid red;
     }
 
     & img {
@@ -146,7 +171,7 @@ header {
         
     }
 
-    .active-link {
+    .active-link{
         background-size: 100% 2px;
         color: var(--accent-color);
         font-size: clamp(0.85em, 1vw + 0.6em, 1.1em);
@@ -161,7 +186,7 @@ header {
         transition: 0.5s ease-in-out;
 
         &:hover {
-            background-color: rgba(86, 25, 209, 0.1);
+            background-color: rgba(86, 25, 209, 0.2);
             color: var(--tertiary-font-color);
             font-size: clamp(0.85em, 0.8vw + 0.15em, 1.05em);
         }
@@ -175,7 +200,6 @@ header {
         justify-content: center;
         align-items: center;
         background-color: var(--button-color);
-        /* border: 1px solid red; */
 
         & svg {
             fill: var(--secondary-font-color);
@@ -222,27 +246,8 @@ header {
         padding: 20px 0 20px 0;
     }
 
-    & h1 {
-        font-size: 2.5em;
-        font-size: clamp(2em, 2vw + 1em, 3em);
-        color: var(--primary-font-color);
-    }
-
-    & h2 {
-        font-size: 1.75em;
-        font-size: clamp(1.5em, 1.5vw + 0.5em, 2em);
-        color: var(--secondary-font-color);
-    }
-
-    & p {
-        margin-top: 20px;
-        max-width: 600px;
-        padding: 10px 0 20px 0;
-        color: var(--tertiary-font-color);
-    }
-
     h1 .hightlight-text {
-        background-image: linear-gradient(to right, #50c26d, #f8cdda, #a17fe0, #5d26c1, #4d08d7, #1d2b64); 
+        background-image: linear-gradient(to right,#f8cdda, #a17fe0, #5d26c1, #4d08d7, #1d2b64); 
         background-position: left;
         background-size: 300%;
         -webkit-background-clip: text;
@@ -295,33 +300,62 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 50%;
+        max-width: 55%;
+        /* border: 1px solid red; */
 
         .btn {
+            box-sizing: border-box;
+            font-size: clamp(0.75em, 0.9vw + 0.1em, 1.5em);
             padding: 10px 20px;
             border-radius: 2in;
             text-decoration: none;
-            max-width: max-content;
-            transition: background-color 0.3s ease;
+            max-width: 12em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1em;
+            transition: all 1s ease;
         }
         
         .button-project {
+            width: 100%;
+            height: 3em;
             background-color: var(--accent-color);
-            color: white;
+            color: var(--button-font-color);
+            border: 2px solid var(--accent-color);
+            padding: 2px 20px 2px 20px;
+            justify-content: flex-start;
+        }
+        
+        .button-project:hover {
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            padding-left: 2px;
+        }
+     
+        .button-project .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            fill: var(--secondary-font-color);
+            background-color: var(--bg-color);
+            border-radius: 50%;
+            padding: 0.5em;
         }
         
         .btn-download {
             border: 2px solid var(--tertiary-font-color);
-            color: var(--secondary-font-color);
+            background-color: var(--bg-color);
+            color: var(--tertiary-font-color);
+            box-shadow:  5px 5px 10px #bebebe17,
+            -5px -5px 10px #00000013;
+            transition: background-color 0.5s;
         }
-        
-        .btn:hover {
-            opacity: 0.9;
+        .btn-download:hover {
+            background-color: var(--accent-color);
+            color: var(--button-font-color);
         }
     }
-
-    
-
 }
 
 @keyframes auto-typing {
