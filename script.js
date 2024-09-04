@@ -3,11 +3,33 @@ const DOMS = {
     toggleThemeButton: document.querySelector('.button-toggle'),
     backToTopButton: document.getElementById('back-to-top'),
     scrollLinks: document.querySelectorAll('.scroll-link'),
+    darkModeMediaQuery: window.matchMedia('(prefers-color-scheme: dark)'),
 };
+
+// Function to check system color scheme preference
+function prefersDarkMode() {
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
+
+// Function to set the initial theme
+function setInitialTheme() {
+    if (prefersDarkMode()) {
+        DOMS.body.classList.add('dark');
+    }
+}
 
 // Handler to manually toggle color theme
 DOMS.toggleThemeButton.addEventListener('click', () => {
     DOMS.body.classList.toggle("dark");
+});
+
+// Listen for changes in system color scheme
+DOMS.darkModeMediaQuery.addEventListener('change', (e) => {
+    if (e.matches) {
+        DOMS.body.classList.add('dark');
+    } else {
+        DOMS.body.classList.remove('dark');
+    }
 });
 
 // Handler to toggle state of anchor elements
@@ -35,6 +57,8 @@ function scrollFunction() {
         backToTopButton.style.display = "none";
     }
 }
+
+setInitialTheme();
 
 DOMS.backToTopButton.onclick = function() {
     DOMS.body.scrollTop = 0; // For Safari browser

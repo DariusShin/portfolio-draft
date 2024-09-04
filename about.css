@@ -1,0 +1,97 @@
+/* About Section */
+#about {
+    justify-content: space-evenly;
+    align-items: center;
+
+    & .about-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid red;
+    }
+}
+
+.about-content p {
+    margin-top: 0.25em;
+    text-align: justify;
+}
+
+.socials-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2em;
+    padding: 2em;
+    margin-top: 1em;
+}
+
+.socials-container a {
+    background-color: var(--button-color);
+    padding: 1em;
+    border-radius: 50%;
+    height: 3.2em; width: 3.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    box-shadow:  5px 5px 10px #bebebe28,
+    -8px 5px 10px #0000002c;
+}
+
+.socials-container a svg {
+    height: 1.6em;
+    fill: var(--primary-font-color);
+}
+
+.socials-container a::before {
+    content: attr(data-social);
+    position: absolute;
+    background-color: var(--_social-color);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 1in;
+    box-shadow: 0 5px 10px #0000000d;
+    transform: translateY(-1.5em) rotate(25deg);
+    opacity: 0;
+    transition: 0.2s cubic-bezier(0.41,-0.06, 0.41, 1.74);
+}
+
+.socials-container a::after {
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid var(--_social-color);
+    transform: translateY(0) rotate(25deg);
+    opacity: 0;
+    transition: 0.2s cubic-bezier(0.41,-0.06, 0.41, 1.74);
+}
+
+.socials-container a:hover {
+    background-color: var(--_social-color);
+}
+
+.socials-container a:hover::before {
+    transform: translateY(-3.3em) rotate(0);
+    opacity: 1;
+}
+
+.socials-container a:hover::after {
+    transform: translateY(-2em) rotate(0);
+    opacity: 1;
+}
+
+
+.socials-container a:hover svg {
+    fill: #ffffff;
+}
+
+.profile-picture img {
+    width: 300px;
+    height: auto;
+    filter: drop-shadow(7px 5px rgba(0,0,0,0.1));
+    transition: transform 0.3s ease;
+}

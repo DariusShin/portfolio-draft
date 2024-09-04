@@ -9,16 +9,16 @@
     --primary-font-color: #0D0D0D;
     --secondary-font-color: #555656;
     --tertiary-font-color: #929ca7;
-    
-    /* --gradient-color: linear-gradient(to right, #8d73c3, #6744ae, #400ea3); */
     --gradient-color: linear-gradient(to right, #b89ef4, #906ce4 , #5f2dc2bf, #5722c3);
-    --button-color: #EEF2F7;
+    --button-color: #ebebf6;
+    --button-hover-color: #dbdbdb;
     --button-font-color: #F1F3F5;
-    --repeating-grid-color: #8d8d8d1a;
+    --repeating-grid-color: #8d8d8d10;
     --card-color: #F0F4F9;
 }
 
 /* For manual toggle */
+:root.dark,
 html > body.dark {
     --accent-color: #7e3dffc4;
     --bg-color: #0b1215;
@@ -27,6 +27,7 @@ html > body.dark {
     --secondary-font-color: #B0B0B0;
     --tertiary-font-color: #8A8F99;
     --button-color: #202225;
+    --button-hover-color:#303335;
     --button-font-color: #D1D3D5;
     --repeating-grid-color: #cfcdcd0b;
     --card-color: #363535;
@@ -47,6 +48,17 @@ h1 {
     font-size: 2.5em;
     font-size: clamp(2em, 2vw + 1em, 3em);
     color: var(--primary-font-color);
+}
+
+h1 .hightlight-text {
+    font-family: "MuseoModerno", sans-serif;
+    background-image: linear-gradient(to right,#f8cdda, #a17fe0, #5d26c1, #4d08d7, #1d2b64); 
+    background-position: left;
+    background-size: 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: font-animation 15s infinite forwards alternate;
 }
 
 h2 {
@@ -71,9 +83,9 @@ body {
 }
 
 /* Handler for user enter the site with dark mode in their system setting */
-@media (prefers-color-scheme: dark) {
+/* Dark Theme - Color Scheme */
+/* @media (prefers-color-scheme: dark) {
     body {
-        /* Dark Theme - Color Scheme*/
         --accent-color: #7e3dffc4;
         --bg-color: #0b1215;
         --header-color: #181D23;
@@ -85,7 +97,8 @@ body {
         --repeating-grid-color: #cfcdcd0b;
         --card-color: #363535;
     }
-}
+}  */
+
 
 /* Responsive layout for mobile view */
 @media (max-width: 768px) {
@@ -108,6 +121,22 @@ body {
         width: 100%;
         text-align: center;
     }
+}
+
+section {
+    border: 1px solid red;
+    min-height: 100svh;
+    display: flex;
+}
+
+.section-title {
+    font-family: "MuseoModerno", sans-serif;
+    font-weight: bold;
+}
+
+section:not(.main-section) {
+    height: 100vmin;
+    scroll-margin-top: 10vmin;
 }
 
 header {
@@ -135,8 +164,6 @@ header {
     }
 
     & .logo-title {
-        font-family: "MuseoModerno", sans-serif;
-        font-weight: bold;
         background:  var(--gradient-color);
         -webkit-background-clip: text;
         background-clip: text;
@@ -217,204 +244,6 @@ header {
 }
 .dark .button-toggle svg:last-child{
     display: block;
-}
-
-/* Home Section */
-#home {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    & .home-container {
-        max-width: 80vw;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%; height: auto;
-        margin: 0 auto;
-        padding: 20px;
-    }
-}
-
-.intro-text {
-    flex: 1;
-    padding-right: 40px;
-
-    & h1, h2 {
-        padding: 20px 0 20px 0;
-    }
-
-    h1 .hightlight-text {
-        background-image: linear-gradient(to right,#f8cdda, #a17fe0, #5d26c1, #4d08d7, #1d2b64); 
-        background-position: left;
-        background-size: 300%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: font-animation 15s infinite forwards alternate;
-    }
-
-    h2 .typing-text { position: relative; max-width: max-content;}
-
-    .typing-text::before, 
-    .typing-text::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right:0;
-        bottom: 0;
-    }
-
-    .typing-text::before {
-        background-color: var(--bg-color);
-        animation: auto-typing 15s steps(23) 1s infinite;
-    }
-
-    .typing-text::after {
-        background-color: var(--secondary-font-color);
-        width: 0.125em;
-        animation: auto-typing 15s steps(23) 1s infinite, cursor-blink 750ms steps(23) infinite;
-    }
-
-    .tagline::before {
-        content: '';
-        background-color: var(--accent-color);
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0.25em;
-        height: 100%;
-    }
-
-    & .tagline {
-        position: relative;
-        background: var(--card-color);
-        padding: 10px 10px;
-    }
-
-    & .cta-buttons {
-        margin: 40px 10px 0 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 55%;
-        /* border: 1px solid red; */
-
-        .btn {
-            box-sizing: border-box;
-            font-size: clamp(0.75em, 0.9vw + 0.1em, 1.5em);
-            padding: 10px 20px;
-            border-radius: 2in;
-            text-decoration: none;
-            max-width: 12em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1em;
-            transition: all 1s ease;
-        }
-        
-        .button-project {
-            width: 100%;
-            height: 3em;
-            background-color: var(--accent-color);
-            color: var(--button-font-color);
-            border: 2px solid var(--accent-color);
-            padding: 2px 20px 2px 20px;
-            justify-content: flex-start;
-        }
-        
-        .button-project:hover {
-            background-color: var(--bg-color);
-            color: var(--accent-color);
-            padding-left: 2px;
-        }
-     
-        .button-project .icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            fill: var(--secondary-font-color);
-            background-color: var(--bg-color);
-            border-radius: 50%;
-            padding: 0.5em;
-        }
-        
-        .btn-download {
-            border: 2px solid var(--tertiary-font-color);
-            background-color: var(--bg-color);
-            color: var(--tertiary-font-color);
-            box-shadow:  5px 5px 10px #bebebe17,
-            -5px -5px 10px #00000013;
-            transition: background-color 0.5s;
-        }
-        .btn-download:hover {
-            background-color: var(--accent-color);
-            color: var(--button-font-color);
-        }
-    }
-}
-
-@keyframes auto-typing {
-    40%,60% {
-        left: 100%;
-    }
-    100%{
-        left: 0;
-    }
-}
-
-@keyframes cursor-blink {
-    to {
-        background-color: transparent;
-    }
-}
-
-@keyframes font-animation {
-    0% {
-        background-position: left;
-    }
-    100% {
-        background-position: right;
-    }
-}
-
-.img-holder {
-    position: relative;
-}
-
-.liquid-shape {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 125%; /* Increase width */
-    height: 125%; /* Increase height */
-    transform: translate(-10%, 10%); /* Center the enlarged SVG */
-    z-index: 0;
-}
-
-.liquid-shape > path {
-    fill: var(--gradient-color);
-}
-
-.img-box {
-    position: relative;
-    z-index: 1;
-}
-
-.img-box img {
-    max-width: 400px;
-    height: auto;
-    border-radius: 50%;
-    filter: drop-shadow(7px 5px rgba(0,0,0,0.1));
-    transition: transform 0.3s ease;
-}
-
-.img-box img:hover {
-    transform: scale(1.05);
 }
 
 .highlight-wrapper {
