@@ -1,0 +1,61 @@
+/* Skills Section */
+#skills {
+    align-items: center;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: max-content;
+    padding-block: 1em;
+}
+
+.skills-container {
+    padding: 1em;
+    width: 80%;
+    display: grid;
+    gap: 3em;
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+    grid-template-rows: repeat(2, minmax(300px, 1fr));
+}
+
+.skills-content {
+    background: var(--card-color);
+    border: 4px solid var(--secondary-font-color);
+}
+
+.skills-content > * {
+    margin: 1em;
+}
+
+.skills-content .skills-header {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    gap: 1em;
+}
+
+.skills-content .skills-header svg{
+    width: 48px; height: auto;
+}
+
+.skills-content:not(:nth-child(2)) .skills-header svg,
+.skills-content:nth-child(2) .skills-header:nth-child(4) svg {
+    fill: var(--accent-color);
+}
+
+.skills-content:nth-child(2) .skills-header svg {
+    stroke: var(--accent-color);
+}
+
+.skills-area-title {
+    font-size: clamp(1.25em, 1.25em + 0.3vmax, 1.75em);
+    color: var(--primary-font-color);
+}
+
+.skills-title {
+    display: flex;
+}
+
+.skills-title > svg {
+    fill: var(--secondary-font-color);
+    width: 24px;  height: auto;
+}
+

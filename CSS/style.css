@@ -9,18 +9,18 @@
     --primary-font-color: #0D0D0D;
     --secondary-font-color: #555656;
     --tertiary-font-color: #929ca7;
-    --gradient-color: linear-gradient(to right, #b89ef4, #906ce4 , #5f2dc2bf, #5722c3);
+    --gradient-color: linear-gradient(to right, #b89ef4, #906ce4 , #5f2dc2bf, #49268f);
     --button-color: #ebebf6;
     --button-hover-color: #dbdbdb;
     --button-font-color: #F1F3F5;
     --repeating-grid-color: #8d8d8d10;
-    --card-color: #F0F4F9;
+    --card-color: #f3f3f3;
 }
 
 /* For manual toggle */
 :root.dark,
 html > body.dark {
-    --accent-color: #7e3dffc4;
+    --accent-color: #794cd4;
     --bg-color: #0b1215;
     --header-color: #181D23;
     --primary-font-color: #d6d6d6;
@@ -30,7 +30,7 @@ html > body.dark {
     --button-hover-color:#303335;
     --button-font-color: #D1D3D5;
     --repeating-grid-color: #cfcdcd0b;
-    --card-color: #363535;
+    --card-color: #212121a1;
 }
 
 *,
@@ -58,7 +58,16 @@ h1 .hightlight-text {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: font-animation 15s infinite forwards alternate;
+    animation: font-animation 8s infinite forwards alternate;
+}
+
+@keyframes font-animation {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
 }
 
 h2 {
@@ -83,6 +92,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-x: hidden;
 }
 
 /* Handler for user enter the site with dark mode in their system setting */
@@ -128,7 +138,7 @@ body {
 section {
     border: 1px solid red;
     min-height: 100svh;
-    width: 80svw;
+    width: 85svw;
     display: flex;
 }
 
@@ -136,6 +146,19 @@ section {
     font-family: "MuseoModerno", sans-serif;
     font-weight: bold;
 }
+
+.section-title::after {
+    --w: 60%;
+    content: '';
+    display: block;
+    width: var(--w);
+    margin-top: -5%;
+    margin-left: calc((100% - var(--w))/2);
+    height: 4px;
+    border-radius: 2in;
+    background-color: var(--tertiary-font-color);
+}
+
 
 section:not(.main-section) {
     height: 100vmin;
@@ -263,45 +286,6 @@ header {
     color: #333;
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.skill-card {
-background-color: #f0f0f0;
-border-radius: 8px;
-padding: 15px;
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-transition: transform 0.3s;
-}
-
-.skill-card:hover {
-transform: translateY(-5px);
-}
-
-.icon-holder {
-display: flex;
-align-items: center;
-margin-bottom: 10px;
-}
-
-.skill-title {
-margin-left: 10px;
-font-weight: bold;
-}
-
-.desc-container {
-margin-bottom: 10px;
-}
-
-.rating-holder i {
-color: #ffd700; /* Gold color for stars */
-margin-right: 2px;
-}
-
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -347,79 +331,4 @@ margin-right: 2px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.footer {
-    background-color: var(--header-color);
-    color: #ecf0f1;
-    padding: 40px 20px 20px;
-    font-family: 'Arial', sans-serif;
-    position: relative;
-    width: 100svw;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.footer-section {
-    margin-bottom: 20px;
-}
-
-.footer-section h3 {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    color: #3498db;
-}
-
-.footer-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-section ul li {
-    margin-bottom: 8px;
-}
-
-.footer-section ul li a {
-    color: #ecf0f1;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section ul li a:hover {
-    color: #3498db;
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 20px;
-    margin-top: 20px;
-    border-top: 1px solid #34495e;
-}
-
-#back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    font-size: 24px;
-    line-height: 50px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: none;
-}
-
-#back-to-top:hover {
-    background-color: #2980b9;
 }

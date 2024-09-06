@@ -60,8 +60,3 @@ function scrollFunction() {
 
 setInitialTheme();
 
-DOMS.backToTopButton.onclick = function() {
-    DOMS.body.scrollTop = 0; // For Safari browser
-    document.documentElement.scrollTop = 0;
-}
-

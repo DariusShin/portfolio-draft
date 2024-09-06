@@ -23,7 +23,11 @@
         padding: 20px 0 20px 0;
     }
 
-    h2 .typing-text { position: relative; max-width: max-content;}
+    h2 .typing-text { 
+        position: relative; 
+        max-width: max-content;
+        color: var(--accent-color);
+    }
 
     .typing-text::before, 
     .typing-text::after {
@@ -145,15 +149,6 @@
 @keyframes cursor-blink {
     to {
         background-color: transparent;
-    }
-}
-
-@keyframes font-animation {
-    0% {
-        background-position: left;
-    }
-    100% {
-        background-position: right;
     }
 }
 
