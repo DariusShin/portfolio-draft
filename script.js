@@ -4,6 +4,8 @@ const DOMS = {
     backToTopButton: document.getElementById('back-to-top'),
     scrollLinks: document.querySelectorAll('.scroll-link'),
     darkModeMediaQuery: window.matchMedia('(prefers-color-scheme: dark)'),
+    skillsContent: document.getElementsByClassName('skills-content'),
+    skillsHeader : document.querySelectorAll('.skills-header'),
 };
 
 // Function to check system color scheme preference
@@ -36,7 +38,7 @@ DOMS.darkModeMediaQuery.addEventListener('change', (e) => {
 DOMS.scrollLinks.forEach(link => {
     link.addEventListener('click', function() {
         // Remove 'active-link' class from all links
-        document.querySelectorAll('.scroll-link').forEach(item => {
+        DOMS.scrollLinks.forEach(item => {
             item.classList.remove('active-link');
         });
         // Add 'active-link' class to the clicked link except for the 'Download CV' link
@@ -57,6 +59,24 @@ function scrollFunction() {
         backToTopButton.style.display = "none";
     }
 }
+
+// Skills section
+// Accordion skills
+
+function toggleSkills() {
+    let itemClass = this.parentNode.className;
+
+    for(i = 0; i < DOMS.skillsContent.length; i++){
+        DOMS.skillsContent[i].className = 'skills-content skills-close';
+    }
+    if (itemClass === 'skills-content skills-close'){
+        this.parentNode.className ='skills-content';
+    }
+}
+
+DOMS.skillsHeader.forEach((el) => {
+    el.addEventListener('click', toggleSkills);
+});
 
 setInitialTheme();
 

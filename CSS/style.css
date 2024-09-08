@@ -4,11 +4,12 @@
 
     /* Light Theme - Color Scheme*/
     --accent-color: #5619d1;
+    --lighter-accent-color: #9e79e7a4;
     --header-color: #FFFFFF;
     --bg-color: #eaeff8;
     --primary-font-color: #0D0D0D;
     --secondary-font-color: #555656;
-    --tertiary-font-color: #929ca7;
+    --tertiary-font-color: #828486;
     --gradient-color: linear-gradient(to right, #b89ef4, #906ce4 , #5f2dc2bf, #49268f);
     --button-color: #ebebf6;
     --button-hover-color: #dbdbdb;
@@ -20,7 +21,8 @@
 /* For manual toggle */
 :root.dark,
 html > body.dark {
-    --accent-color: #794cd4;
+    --accent-color: #6134bd;
+    --lighter-accent-color: #d1bbffae;
     --bg-color: #0b1215;
     --header-color: #181D23;
     --primary-font-color: #d6d6d6;
@@ -147,18 +149,21 @@ section {
     font-weight: bold;
 }
 
-.section-title::after {
+.section-title:not(.section-title:has(span.logo-title))::after {
     --w: 60%;
     content: '';
     display: block;
     width: var(--w);
-    margin-top: -5%;
+    margin-top: -3%;
     margin-left: calc((100% - var(--w))/2);
     height: 4px;
     border-radius: 2in;
     background-color: var(--tertiary-font-color);
 }
 
+.section-subtitle {
+    color: var(--tertiary-font-color);
+}
 
 section:not(.main-section) {
     height: 100vmin;
