@@ -4,23 +4,31 @@
     flex-flow: column nowrap;
     justify-content: flex-start;
     gap: 4em;
-    align-items: center;
     height: max-content;
     padding-block: 1em;
 }
 
 .skills-container {
-    padding: 1em;
+    padding: 1rem;
     width: 80%;
-    display: grid;
-    gap: 2em;
-    grid-template-columns: repeat(2, minmax(300px, 1fr));
-    grid-template-rows: repeat(2, minmax(150px, 1fr));
+    display: flex; /* Change to flexbox */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 3em; /* Space between items */
 }
 
 .skills-content {
-    background: var(--card-color);
-    border: 1px solid var(--secondary-font-color);
+    background-color: var(--card-color);
+    border-radius: 10px;
+    box-shadow: 2px 6px 6px rgba(0,0,0,0.1);
+    /* border: 1px solid var(--secondary-font-color); */
+    max-height: 150px; /* Adjust this value to match your header height */
+    overflow: hidden;
+    flex: 1 1 calc(50% - 1em); /* Take up half the width minus gap */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.skills-content:not(.skills-close) {
+    max-height: 800px;
 }
 
 .drop-down {
@@ -55,10 +63,6 @@
 .skills-area-title {
     font-size: clamp(1.25em, 1.25em + 0.3vmax, 1.75em);
     color: var(--primary-font-color);
-}
-
-.skills-list {
-    padding-left: 1rem;
 }
 
 .skills-data {
@@ -98,14 +102,31 @@
 .skills-percentage {
     display: block;
     background-color: var(--accent-color);
+    width: 0; /* Start at 0 width */
+    transition: width 1s ease-out;
+}
+
+.skills-content:not(.skills-close) .skills-percentage {
     width: var(--_percent);
 }
 
-.skills-close .skills-list {
-    height: 0;
+.skills-list {
+    padding-left: 1rem;
     overflow: hidden;
+    transition: opacity 0.3s ease-out, max-height 0.3s ease-out 0.3s;
 }
 
 .skills-close .drop-down {
     transform: rotate(0deg);
+}
+
+.skills-close .skills-list {
+    max-height: 0;
+    opacity: 0;
+    transition-delay: 0s;
+}
+
+.skills-close .skills-list > * {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
 }

@@ -62,21 +62,49 @@ function scrollFunction() {
 
 // Skills section
 // Accordion skills
-
 function toggleSkills() {
-    let itemClass = this.parentNode.className;
+    const clickedContent = this.closest('.skills-content');
 
-    for(i = 0; i < DOMS.skillsContent.length; i++){
-        DOMS.skillsContent[i].className = 'skills-content skills-close';
+    let content;
+    // Close all skills content
+    for(i = 0; i < DOMS.skillsContent.length; i++) {
+        content = DOMS.skillsContent[i];
+        if (content !== clickedContent) {
+            content.classList.add('skills-close');
+        }
     }
-    if (itemClass === 'skills-content skills-close'){
-        this.parentNode.className ='skills-content';
-    }
+
+    // Toggle the clicked content
+    clickedContent.classList.toggle('skills-close');
 }
 
 DOMS.skillsHeader.forEach((el) => {
     el.addEventListener('click', toggleSkills);
 });
 
+// Initialize all skills as closed
+document.addEventListener('DOMContentLoaded', () => {
+    for(i = 0; i < DOMS.skillsContent.length; i++) {
+        DOMS.skillsContent[i].classList.add('skills-close');
+    }
+});
+
 setInitialTheme();
+
+// Project section
+// Carousel Slider with Swiper.js
+// Initialize Swiper
+const swiper = new Swiper('.swiper-container', {
+    slidesPerView: 1, // Number of slides to show at once
+    spaceBetween: 20, // Space between slides
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    // Optional: Add more configurations as needed
+});
 
