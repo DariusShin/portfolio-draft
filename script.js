@@ -97,14 +97,6 @@ setInitialTheme();
 const swiper = new Swiper('.swiper-container', {
     slidesPerView: 1, // Number of slides to show at once
     spaceBetween: 20, // Space between slides
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
     // Optional: Add more configurations as needed
 });
 

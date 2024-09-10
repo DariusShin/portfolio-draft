@@ -15,7 +15,11 @@
     --button-hover-color: #dbdbdb;
     --button-font-color: #F1F3F5;
     --repeating-grid-color: #8d8d8d10;
-    --card-color: #f3f3f3;
+    --card-color: #f3f3f380;
+
+    /* shadow color */
+    --sd-highlight: #ffffff80;
+    --sd-darken: #0000001a;
 }
 
 /* For manual toggle */
@@ -28,11 +32,17 @@ html > body.dark {
     --primary-font-color: #d6d6d6;
     --secondary-font-color: #B0B0B0;
     --tertiary-font-color: #8A8F99;
+    --gradient-color: linear-gradient(to right, #b89ef4, #906ce4 , #8252e4bf, #6a44b8);
     --button-color: #202225;
     --button-hover-color:#303335;
     --button-font-color: #D1D3D5;
     --repeating-grid-color: #cfcdcd0b;
-    --card-color: #212121a1;
+    --card-color: #21212180;
+
+    /* shadow color */
+    --sd-highlight: #00000080;
+    --sd-darken: #ffffff1a;
+    
 }
 
 *,
@@ -54,7 +64,7 @@ h1 {
 
 h1 .hightlight-text {
     font-family: "MuseoModerno", sans-serif;
-    background-image: linear-gradient(to right,#f8cdda, #a17fe0, #5d26c1, #4d08d7, #1d2b64); 
+    background-image: linear-gradient(to right,#f8cdda, #a17fe0, #5d26c1, #0869d7); 
     background-position: left;
     background-size: 300%;
     -webkit-background-clip: text;
@@ -289,29 +299,6 @@ header {
     font-weight: bold;
     font-size: 1.1em;
     color: #333;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.project-card {
-    background-color: var(--card-color);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.project-link {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    background-color: #4a90e2;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
 }
 
 #contact-form {
