@@ -1,8 +1,7 @@
 #projects {
     align-items: center;
-    flex-flow: column nowrap;
+    flex-flow: column;
     gap: 3em;
-    height: max-content;
     padding-block: 1em;
 }
 
@@ -12,8 +11,9 @@
     flex-direction: column;
     background-color: var(--card-color);
     border-radius: 1em;
+    border: 2px solid var(--tertiary-font-color);
     box-shadow: 
-        5px 5px 1px var(--lighter-accent-color),
+        4px 4px 1px var(--lighter-accent-color),
         inset 5px 5px 1px var(--sd-highlight);
     max-width: 60vmax;
     padding: 1em;
@@ -25,6 +25,7 @@
 }
 
 .project-details {
+    --_gradient_mask: linear-gradient(to right,rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.9));
     width: 100%;
     height: 100%;
     position: absolute;
@@ -32,18 +33,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.7),
-        rgba(0, 0, 0, 0.8),
-        rgba(0, 0, 0, 0.9)
-    );
+    background: var(--_gradient_mask);
     border-radius: .5em;
     padding-left: 1em;
     opacity: 0;
     transition: 0.6s;
 }
+
+/* html > body.dark .project-details {
+    --_gradient_mask: linear-gradient(to right,rgba(250, 250, 250, 0.9), rgba(250, 250, 250, 0.75), rgba(250, 250, 250, 1));
+} */
 
 .project-details:hover {
     opacity: 1;
@@ -69,6 +68,7 @@
     display: block;
     margin: auto;
     border-radius: .5em;
+    object-fit: cover;
 }
 
 .project-name{
@@ -108,4 +108,35 @@
 
 .show-more-button:hover {
     background-color: var(--lighter-accent-color);
+}
+
+.swiper {
+    overflow-x: hidden;
+    padding: 2em 1.05em;
+}
+
+.swiper > *:not(.swiper-wrapper) {
+    position: absolute;
+}
+
+.swiper-wrapper {
+    max-width: 60vmax;   
+}
+
+.swiper-pagination > .swiper-pagination-bullet {
+    width: 15px; height: 15px;
+    opacity: 1;
+    background-color: var(--tertiary-font-color);
+}
+
+.swiper-pagination > .swiper-pagination-bullet-active {
+    background: var(--accent-color);
+    border: none;
+}
+
+[class^="swiper-button"] {
+    color: var(--tertiary-font-color);
+    opacity: 0;
+    top: 0;
+    height: 200%;
 }

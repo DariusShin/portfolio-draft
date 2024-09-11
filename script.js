@@ -94,9 +94,25 @@ setInitialTheme();
 // Project section
 // Carousel Slider with Swiper.js
 // Initialize Swiper
-const swiper = new Swiper('.swiper-container', {
+const swiper = new Swiper('.swiper', {
     slidesPerView: 1, // Number of slides to show at once
     spaceBetween: 20, // Space between slides
     // Optional: Add more configurations as needed
+    centeredSlides: true,
+    grabCursor: true,
+    loop: true,
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+        clickable: true,
+    },
 });
 
