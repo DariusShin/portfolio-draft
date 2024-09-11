@@ -103,7 +103,7 @@
     color: white;
     text-decoration: none;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.6s;
 }
 
 .show-more-button:hover {
