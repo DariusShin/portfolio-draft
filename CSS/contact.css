@@ -1,0 +1,59 @@
+.contact {
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3em;
+}
+
+div.contact-details {
+    margin-block: 2em;
+}
+
+.contact-form {
+    margin-block: 2em;
+    flex: 1;
+    height: 100%;
+    background: var(--card-color);
+    padding: 2em 3em;
+    border-radius: 25px;
+    display: grid;
+    gap: .5em 1em;
+    grid-template-areas: 
+        "firstname lastname"
+        "subject email"
+        "details details"
+        "btnSubmit .";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.firstname {
+    grid-area: firstname;
+}
+
+.lastname {
+    grid-area: lastname;
+}
+
+.subject {
+    grid-area: subject;
+}
+
+.email {
+    grid-area: email;
+}
+
+.details {
+    grid-area: details;
+}
+
+.details > textarea {
+    resize: none;
+}
+
+.submit-button {
+    grid-area: btnSubmit;
+}
+
+.contact-form > div {
+    padding-block: 1em;
+}

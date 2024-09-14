@@ -1,8 +1,10 @@
-#projects {
+.projects {
     align-items: center;
     flex-flow: column;
     gap: 3em;
     padding-block: 1em;
+    --_title-color: #ebebf6;
+    --_subtitle-color: #dbdbdb;
 }
 
 .project-card {
@@ -72,12 +74,12 @@
 }
 
 .project-name{
-    color: var(--button-color);
+    color: var(--_title-color);
     margin-left: .5em;
 }
 
 .project-description {
-    color: var(--button-hover-color);
+    color: var(--_subtitle-color);
     font-size: clamp(0.1em, 1em, 1.25em);
     padding: 0 1em;
     max-width: max-content;
@@ -88,7 +90,7 @@
     display: flex;
     gap: 1em;
     margin: 1em;
-    fill: var(--button-hover-color);
+    fill: var(--_subtitle-color);
 }
 
 .tech-stack svg {

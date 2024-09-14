@@ -1,18 +1,9 @@
 /* Home Section */
-#home {
+.home {
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-
-    & .home-container {
-        max-width: 80vw;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%; height: auto;
-        margin: 0 auto;
-        padding: 20px;
-    }
+    justify-content: space-between;
+    padding: 20px;
 }
 
 .intro-text {
@@ -124,21 +115,24 @@
             border: 2px solid var(--tertiary-font-color);
             background-color: var(--bg-color);
             color: var(--secondary-font-color);
-            box-shadow: 3px 3px 0 var(--secondary-font-color);
+            box-shadow: 0px 0px 0 var(--secondary-font-color);
             transition: all 0.3s;
         }
 
         .btn-download svg{
+            transition: all 0.3s;
             fill: var(--secondary-font-color);
         }
 
         .btn-download:hover svg{
-            fill: var(--lighter-accent-color);
+            fill: var(--accent-color);
         }
+
         .btn-download:hover {
-            color: var(--lighter-accent-color);
-            border: 2px solid var(--lighter-accent-color);
-            box-shadow: 3px 3px 0 var(--lighter-accent-color);
+            transform: translate(-5px, -5px);
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+            box-shadow: 5px 5px 0 var(--accent-color);
         }
     }
 }

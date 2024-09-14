@@ -6,7 +6,8 @@
     --accent-color: #5619d1;
     --lighter-accent-color: #9e79e7a4;
     --header-color: #FFFFFF;
-    --bg-color: #eaeff8;
+    --bg-color: #EAEFF8;
+    --bg-color-2: #dee4ed;
     --primary-font-color: #0D0D0D;
     --secondary-font-color: #555656;
     --tertiary-font-color: #828486;
@@ -28,6 +29,7 @@ html > body.dark {
     --accent-color: #6134bd;
     --lighter-accent-color: #d1bbffae;
     --bg-color: #0b1215;
+    --bg-color-2: #070a0d;
     --header-color: #181D23;
     --primary-font-color: #d6d6d6;
     --secondary-font-color: #B0B0B0;
@@ -99,30 +101,11 @@ p {
 body {
     background-color: var(--bg-color);
     color: var(--primary-font-color);
-    background-image: repeating-linear-gradient(to right, transparent 0 49px, var(--repeating-grid-color) 49px 50px),
-    repeating-linear-gradient(to bottom, transparent 0 49px, var(--repeating-grid-color) 49px 50px);
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
 }
-
-/* Handler for user enter the site with dark mode in their system setting */
-/* Dark Theme - Color Scheme */
-/* @media (prefers-color-scheme: dark) {
-    body {
-        --accent-color: #7e3dffc4;
-        --bg-color: #0b1215;
-        --header-color: #181D23;
-        --primary-font-color: #d6d6d6;
-        --secondary-font-color: #B0B0B0;
-        --tertiary-font-color: #8A8F99;
-        --button-color: #202225;
-        --button-font-color: #D1D3D5;
-        --repeating-grid-color: #cfcdcd0b;
-        --card-color: #363535;
-    }
-}  */
 
 /* Responsive layout for mobile view */
 @media (max-width: 768px) {
@@ -148,10 +131,28 @@ body {
 }
 
 section {
-    border: 1px solid red;
-    min-height: 100svh;
-    width: 85svw;
+    height: 100svh;
+    width: 100svw;
+    background-image: repeating-linear-gradient(to right, transparent 0 49px, var(--repeating-grid-color) 49px 50px),
+    repeating-linear-gradient(to bottom, transparent 0 49px, var(--repeating-grid-color) 49px 50px);
     display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid purple;
+}
+
+.section-wrapper {
+    border: 1px solid red;
+    display: flex;
+    width: 85svw;
+}
+
+section:nth-child(odd){
+    background-color: var(--bg-color-2);
+}
+
+section:nth-child(even){
+    background-color: var(--bg-color);
 }
 
 .section-title {
