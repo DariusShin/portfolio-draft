@@ -4,6 +4,7 @@ const DOMS = {
     backToTopButton: document.getElementById('back-to-top'),
     scrollLinks: document.querySelectorAll('.scroll-link'),
     darkModeMediaQuery: window.matchMedia('(prefers-color-scheme: dark)'),
+    skillsSection : document.getElementById("skills"),
     skillsContent: document.getElementsByClassName('skills-content'),
     skillsHeader : document.querySelectorAll('.skills-header'),
 };
@@ -71,6 +72,14 @@ function toggleSkills() {
         content = DOMS.skillsContent[i];
         if (content !== clickedContent) {
             content.classList.add('skills-close');
+        } else {
+            // Dynamiclly change the height of the skills section
+            // Increase by 400px when open the last skills-content
+            if (content.id = "last-area" && content.classList.contains('skills-close')) {
+                DOMS.skillsSection.style.minHeight = "calc(100svh + 400px)";
+            } else {
+                DOMS.skillsSection.style.minHeight = "100svh";
+            }
         }
     }
 
