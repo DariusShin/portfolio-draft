@@ -7,6 +7,7 @@ const DOMS = {
     skillsSection : document.getElementById("skills"),
     skillsContent: document.getElementsByClassName('skills-content'),
     skillsHeader : document.querySelectorAll('.skills-header'),
+    projectDetails: document.querySelectorAll('.project-details'),
 };
 
 // Function to check system color scheme preference
@@ -123,6 +124,17 @@ const swiper = new Swiper('.swiper', {
         dynamicBullets: true,
         clickable: true,
     },
+});
+
+// get handler to stop the autoplay animation when user hover over slider
+DOMS.projectDetails.forEach(detail => {
+    detail.addEventListener("mouseover", () => {
+        swiper.autoplay.stop();  // Use stop() to disable autoplay
+    });
+
+    detail.addEventListener("mouseout", () => {
+        swiper.autoplay.start();  // Use start() to enable autoplay
+    });
 });
 
 
