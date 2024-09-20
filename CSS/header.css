@@ -1,0 +1,106 @@
+header {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    padding: 20px;
+    width: 100vmax;
+    height: 10vmin;
+    background: var(--header-color);
+    justify-content: space-around;
+    align-items: center;
+    z-index: 10;
+
+    & .logo-holder {
+        display: flex;
+        font-size: 1.5rem;
+        gap: 1em;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    & img {
+        width: 5vmin; height: auto;
+    }
+
+    & .logo-title {
+        background:  var(--gradient-color);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    nav > #menu {
+        display: flex;
+        gap: 2em;
+        align-items: center;
+        list-style-type: none;
+    }
+    li > a{
+        text-decoration:none; 
+        cursor:pointer;
+
+        & > span {
+            color: var(--secondary-font-color);
+        }
+    }
+
+    .scroll-link {
+        font-size: clamp(0.75em, 0.8vw + 0.05em, 1em);
+        background: linear-gradient(to right, #8d73c3, #6744ae, #400ea3) no-repeat right bottom;
+        background-size: 0 4px;
+        transition: background-size 0.3s;
+
+        &:hover {
+            background-position: left bottom;
+            background-size: 100% 2px;
+        }
+        
+    }
+
+    .active-link{
+        background-size: 100% 2px;
+        color: var(--accent-color);
+        font-size: clamp(0.85em, 1vw + 0.6em, 1.1em);
+    }
+    
+    .button-contact > span{
+        color: var(--button-font-color);
+        padding: 0.5em 1em;
+        font-size: clamp(0.8em, 0.8vw + 0.1em, 1em);
+        background: var(--accent-color);
+        border-radius: 50px;
+        transition: 0.5s ease-in-out;
+
+        &:hover {
+            background-color: rgba(86, 25, 209, 0.2);
+            color: var(--tertiary-font-color);
+            font-size: clamp(0.85em, 0.8vw + 0.15em, 1.05em);
+        }
+    }
+
+    .button-toggle {
+        width: 50px; height: 50px;
+        padding: 0;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--button-color);
+
+        & svg {
+            fill: var(--secondary-font-color);
+            height: 3vmax;
+        }
+
+        & svg:last-child{
+            display: none;
+        }
+    }
+}
+
+.dark .button-toggle svg:first-child{
+    display: none;
+}
+.dark .button-toggle svg:last-child{
+    display: block;
+}
