@@ -7,7 +7,7 @@
     --lighter-accent-color: #9e79e7a4;
     --header-color: #FFFFFF;
     --bg-color: #EAEFF8;
-    --bg-color-2: #dee4ed;
+    --bg-color-2: #d0d6df;
     --primary-font-color: #0D0D0D;
     --secondary-font-color: #555656;
     --tertiary-font-color: #828486;
@@ -43,8 +43,7 @@ html > body.dark {
 
     /* shadow color */
     --sd-highlight: #00000080;
-    --sd-darken: #ffffff1a;
-    
+    --sd-darken: #8b87871d;
 }
 
 *,
@@ -138,11 +137,9 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid purple;
 }
 
 .section-wrapper {
-    border: 1px solid red;
     display: flex;
     width: 85svw;
 }
@@ -172,120 +169,9 @@ section:nth-child(even){
     background-color: var(--tertiary-font-color);
 }
 
-.section-subtitle {
-    color: var(--tertiary-font-color);
-}
-
 section:not(.main-section) {
     height: 100vmin;
     scroll-margin-top: 10vmin;
-}
-
-header {
-    display: flex;
-    position: fixed;
-    flex-direction: row;
-    padding: 20px;
-    width: 100vmax;
-    height: 10vmin;
-    background: var(--header-color);
-    justify-content: space-around;
-    align-items: center;
-    z-index: 10;
-
-    & .logo-holder {
-        display: flex;
-        font-size: 1.5rem;
-        gap: 1em;
-        justify-content: flex-start;
-        align-items: center;
-    }
-
-    & img {
-        width: 5vmin; height: auto;
-    }
-
-    & .logo-title {
-        background:  var(--gradient-color);
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    nav > #menu {
-        display: flex;
-        gap: 2em;
-        align-items: center;
-        list-style-type: none;
-    }
-    li > a{
-        text-decoration:none; 
-        cursor:pointer;
-
-        & > span {
-            color: var(--secondary-font-color);
-        }
-    }
-
-    .scroll-link {
-        font-size: clamp(0.75em, 0.8vw + 0.05em, 1em);
-        background: linear-gradient(to right, #8d73c3, #6744ae, #400ea3) no-repeat right bottom;
-        background-size: 0 4px;
-        transition: background-size 0.3s;
-
-        &:hover {
-            background-position: left bottom;
-            background-size: 100% 2px;
-        }
-        
-    }
-
-    .active-link{
-        background-size: 100% 2px;
-        color: var(--accent-color);
-        font-size: clamp(0.85em, 1vw + 0.6em, 1.1em);
-    }
-    
-    .button-contact > span{
-        color: var(--button-font-color);
-        padding: 0.5em 1em;
-        font-size: clamp(0.8em, 0.8vw + 0.1em, 1em);
-        background: var(--accent-color);
-        border-radius: 50px;
-        transition: 0.5s ease-in-out;
-
-        &:hover {
-            background-color: rgba(86, 25, 209, 0.2);
-            color: var(--tertiary-font-color);
-            font-size: clamp(0.85em, 0.8vw + 0.15em, 1.05em);
-        }
-    }
-
-    .button-toggle {
-        width: 50px; height: 50px;
-        padding: 0;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--button-color);
-
-        & svg {
-            fill: var(--secondary-font-color);
-            height: 3vmax;
-        }
-
-        & svg:last-child{
-            display: none;
-        }
-    }
-}
-
-.dark .button-toggle svg:first-child{
-    display: none;
-}
-.dark .button-toggle svg:last-child{
-    display: block;
 }
 
 .highlight-wrapper {
@@ -300,28 +186,4 @@ header {
     font-weight: bold;
     font-size: 1.1em;
     color: #333;
-}
-
-#contact-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-#contact-form input,
-#contact-form textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#contact-form button {
-    padding: 10px;
-    background-color: #4a90e2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }

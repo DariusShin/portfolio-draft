@@ -63,7 +63,6 @@
         justify-content: space-between;
         align-items: center;
         max-width: 55%;
-        /* border: 1px solid red; */
 
         .btn {
             box-sizing: border-box;
