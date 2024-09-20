@@ -8,13 +8,24 @@ const formDOMS = {
     submitButton: document.getElementsByClassName('submit-button'),
 }
 
-class User {
+// class for creating user contact
+class Contact {
     constructor(firstname, lastname, subject, email, details) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.subject = subject;
         this.email = email;
         this.details = details;
+    }
+
+    getData() {
+        return {
+            'firstname': this.firstname,
+            'lastname': this.lastname,
+            'subject': this.subject,
+            'email': this.email,
+            'details': this.details,
+        };
     }
 }
 
@@ -28,12 +39,45 @@ formDOMS.form.addEventListener('submit', function(e) {
     const email = document.getElementById('email').value;
     const details = document.getElementById('details').value;
 
-    // Create new User object
-    const newUser = new User(firstname, lastname, subject, email, details);
-
-    // Log the user object (you can replace this with your desired action)
-    console.log(newUser);
+    // Create new User object and make POST request to the server
+    sendPostRequest(new Contact(firstname, lastname, subject, email, details));
 
     // Reset form
     this.reset();
 });
+
+/**
+ * POST request to the server
+ * @param {Object} contactObj 
+ */
+async function sendPostRequest(contactObj) {
+    try {
+        // make POST request
+        const response = await fetch('https://sheetdb.io/api/v1/9y73ndq68d5sm', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                data: [
+                    {
+                        'id': "INCREMENT",
+                        ...contactObj.getData(),
+                        'date time': "DATETIME"
+                    }
+                ]
+            })
+        });
+
+        // Check if the response is ok (status in the range 200-299)
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error occurred:', error);
+    }
+}

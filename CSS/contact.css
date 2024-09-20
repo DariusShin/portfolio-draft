@@ -1,59 +1,205 @@
 .contact {
     justify-content: center;
-    align-items: flex-start;
-    gap: 3em;
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+    "details form"
+    "location form";
+    gap: 0.5em;
 }
 
-div.contact-details {
-    margin-block: 2em;
+.contact > * {
+    box-shadow: 2px 6px 6px var(--sd-darken),
+    inset 3px 6px 6px var(--sd-highlight);
+    transition: all 0.5s ease-out;
+}
+
+.contact-details:hover{
+    transform: translateX(-10px);
+    box-shadow: 10px 10px 0 var(--accent-color);
+}
+
+.location-box {
+    grid-area: location;
+    margin-bottom: 2em;
+    flex: 1;
+    width: 100%;
+    background: var(--card-color);
+    padding: 1em;
+    border-radius: 0 0 0 25px;
+}
+
+.location-box:hover {
+    transform: translateX(-10px);
+    box-shadow: 10px -10px 0 var(--accent-color);
+}
+
+.location-box iframe {
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: calc(25px - 1em);
 }
 
 .contact-form {
+    grid-area: form;
+    position: relative;
     margin-block: 2em;
     flex: 1;
-    height: 100%;
     background: var(--card-color);
     padding: 2em 3em;
-    border-radius: 25px;
+    border-radius: 0 25px 25px 0;
+}
+
+.contact-form:hover {
+    transform: translateX(10px);
+    box-shadow: -10px 10px 0 var(--accent-color);
+}
+
+.input-group-1 {
     display: grid;
-    gap: .5em 1em;
-    grid-template-areas: 
-        "firstname lastname"
-        "subject email"
-        "details details"
-        "btnSubmit .";
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    gap: 1em 2em;
 }
 
-.firstname {
-    grid-area: firstname;
+.input-group-2 {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 2em;
 }
 
-.lastname {
-    grid-area: lastname;
+.form-group {
+    display: flex;
+    position: relative;
+    min-height: 40px;
+    margin-top: 2em;
+    border-bottom: 2px solid var(--tertiary-font-color);
 }
 
-.subject {
-    grid-area: subject;
-}
-
-.email {
-    grid-area: email;
-}
-
-.details {
-    grid-area: details;
-}
-
-.details > textarea {
+.form-group textarea {
+    width: 100%;
+    overflow: hidden;
     resize: none;
+    line-height: 20px;
+    font-size: 1em;
+    background-color: transparent;
+    border-bottom: 2px solid var(--button-hover-color);
 }
 
-.submit-button {
-    grid-area: btnSubmit;
+.form-group label {
+    position: absolute;
+    left: 5px;
+    font-size: 1.25em;
+    color: var(--tertiary-font-color);
+    transition: all 0.5s;
 }
 
-.contact-form > div {
-    padding-block: 1em;
+.form-group input {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    font-size: 1em;
+}
+
+.form-group textarea:focus, .form-group input:focus {
+    outline: none;
+}
+
+.form-group .bar {
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background: var(--accent-color);
+    bottom: 0;
+    transition: width 0.5s ease-in-out;
+}
+
+.form-group input:focus ~ .bar,
+.form-group textarea:focus ~ .bar {
+    transition: width 0.5s ease-in-out;
+    width: 100%;
+}
+
+.form-group input:valid ~ label,
+.form-group input:focus ~ label {
+    color: var(--lighter-accent-color);
+    transform: translateY(-32px);
+    font-size: 1em;
+}
+
+.input-group-2 .submit {
+    background-color: var(--accent-color);
+    position: relative;
+    max-width: 30%;
+    padding-block: 0.5em;
+    border-radius: 25px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.submit .submit-button {
+    width: max-content;
+    border: none;
+    font-size: 1em;
+    background-color: transparent;
+}
+
+.submit svg {
+    fill: var(--button-font-color);
+    width: 32px;
+    height: 32px;
+}
+
+.contact-form .section-title::after {
+    position: absolute;
+    width: 0 !important;
+}
+
+.contact-details {
+    position: relative;
+    grid-area: details;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--card-color);
+    border-radius: 25px 0 0 0 ;
+    padding: 1em;
+}
+
+.contact-items {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin: 1em;
+}
+
+.contact-details h3 {
+    color: var(--tertiary-font-color);
+    position: absolute;
+    top: 20px; left: 20px; 
+}
+
+.contact-items svg {
+    fill: var(--primary-font-color);
+    width: 32px;
+    height: 32px;
+    transition: fill 0.3s;
+}
+
+.contact-items:hover svg {
+    fill: var(--c);
+}
+
+.contact-items a {
+    color: var(--primary-font-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-items:hover a {
+    color: var(--c);
 }
