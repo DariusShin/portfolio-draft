@@ -128,6 +128,10 @@
     text-align: justify;
 }
 
+.about-content strong {
+    color: var(--primary-font-color);
+}
+
 .socials-container {
     display: flex;
     justify-content: space-evenly;
