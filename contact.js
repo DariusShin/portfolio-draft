@@ -5,7 +5,8 @@ const formDOMS = {
     subject: document.getElementById('subject'),
     email: document.getElementById('email'),
     details: document.getElementById('details'),
-    submitButton: document.getElementsByClassName('submit-button'),
+    btnContainer: document.getElementsByClassName('submit')[0],
+    submitButton: document.getElementsByClassName('submit-button')[0],
 }
 
 // class for creating user contact
@@ -16,16 +17,6 @@ class Contact {
         this.subject = subject;
         this.email = email;
         this.details = details;
-    }
-
-    getData() {
-        return {
-            'firstname': this.firstname,
-            'lastname': this.lastname,
-            'subject': this.subject,
-            'email': this.email,
-            'details': this.details,
-        };
     }
 }
 
@@ -39,8 +30,32 @@ formDOMS.form.addEventListener('submit', function(e) {
     const email = document.getElementById('email').value;
     const details = document.getElementById('details').value;
 
+    formDOMS.submitButton.value = 'Sending...';
+    formDOMS.submitButton.disabled = true;
+
     // Create new User object and make POST request to the server
-    sendPostRequest(new Contact(firstname, lastname, subject, email, details));
+    sendPostRequest(new Contact(firstname, lastname, subject, email, details))
+    .then(() => {
+        // On success, change button text back
+        formDOMS.submitButton.value = 'Message Sent!';
+        formDOMS.btnContainer.classList.add('submit-success'); // Add success class
+        formDOMS.btnContainer.classList.remove('submit-error'); // Remove error class if it exists
+        setTimeout(() => {
+            formDOMS.submitButton.value = 'Send Message'; // Reset after a short delay
+            formDOMS.submitButton.disabled = false; // Re-enable button
+            formDOMS.btnContainer.classList.remove('submit-success'); // Remove success class
+        }, 4000);
+    })
+    .catch(error => {
+        console.error('Error occurred:', error);
+        formDOMS.submitButton.value = 'Try Again!';
+        formDOMS.btnContainer.classList.add('submit-error'); // Add error class
+        setTimeout(() => {
+            formDOMS.submitButton.value = 'Send Message'; // Reset after a short delay
+            formDOMS.submitButton.disabled = false; // Re-enable button
+            formDOMS.btnContainer.classList.remove('submit-error'); // Remove error class
+        }, 4000);
+    });
 
     // Reset form
     this.reset();
@@ -63,7 +78,7 @@ async function sendPostRequest(contactObj) {
                 data: [
                     {
                         'id': "INCREMENT",
-                        ...contactObj.getData(),
+                        ...contactObj,
                         'date time': "DATETIME"
                     }
                 ]
@@ -77,7 +92,9 @@ async function sendPostRequest(contactObj) {
 
         const data = await response.json();
         console.log(data);
+        return data; // Return data for further processing in .then()
     } catch (error) {
         console.error('Error occurred:', error);
+        throw error; // Rethrow error to be caught in event listener
     }
 }
