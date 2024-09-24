@@ -1,76 +1,52 @@
-.projects {
-    align-items: center;
-    flex-flow: column;
-    gap: 1em;
-    padding-block: 1em;
+#projects {
+    display: flex; /* Ensure flex properties are applied */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: flex-start; /* Align items at the start */
+    gap: 1em; /* Space between items */
+    padding-block: 1em; /* Vertical padding */
     --_title-color: #ebebf6;
     --_subtitle-color: #dbdbdb;
+    --_card-gradient-color: linear-gradient(to right bottom, #141833, rgb(34, 45, 68), #1a2642, #181a33);
+    min-height: 200svh;
+}
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1em;
+    justify-content: space-evenly;
+    margin: 2em;
+    max-width: 90svw;
 }
 
 .project-card {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--card-color);
+    background: var(--card-color);
     border-radius: 1em;
     border: 2px solid var(--tertiary-font-color);
-    box-shadow: 
-        4px 4px 1px var(--lighter-accent-color),
-        inset 5px 5px 1px var(--sd-highlight);
-    max-width: 60vmax;
+    box-shadow: 0px 0px 0px var(--sd-darken);
     padding: 1em;
-    transition: transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-}
-
-.project-details {
-    --_gradient_mask: linear-gradient(to right,rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.9));
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--_gradient_mask);
-    border-radius: .5em;
-    padding-left: 1em;
-    opacity: 0;
-    transition: 0.6s;
-}
-
-/* html > body.dark .project-details {
-    --_gradient_mask: linear-gradient(to right,rgba(250, 250, 250, 0.9), rgba(250, 250, 250, 0.75), rgba(250, 250, 250, 1));
-} */
-
-.project-details:hover {
-    opacity: 1;
-}
-
-.project-details > * {
-    transform: translateY(25px);
-    transition: transform 0.6s;
-}
-
-.project-details:hover > * {
-    transform: translateY(0px);
+    background: var(--_card-gradient-color);
+    transform: translate(var(--x), var(--y));
+    box-shadow: calc(var(--x) * -1) calc(var(--y) * -1) 1px var(--lighter-accent-color);
 }
 
 .image-wrapper {
-    position: relative;
-    width: 100%;
+    height: 300px; /* Set a fixed height for consistency */
 }
 
 .project-image {
-    height: 450px;
     width: 100%;
-    display: block;
-    margin: auto;
+    height: 90%;
+    object-fit: contain;
     border-radius: .5em;
-    object-fit: cover;
+    background: var(--_card-gradient-color);
 }
 
 .project-name{
@@ -78,29 +54,39 @@
     margin-left: .5em;
 }
 
+.project-details {
+    margin-block: 1em
+}
+
 .project-description {
     color: var(--_subtitle-color);
-    font-size: clamp(0.1em, 1em, 1.25em);
+    font-size: clamp(0.4em, 0.7em + 0.3vw, 1em);
     padding: 0 1em;
     max-width: max-content;
-    text-align: justify;
+}
+
+.bottom {
+    display: flex;
+    justify-content: space-between;
 }
 
 .tech-stack {
     display: flex;
     gap: 1em;
     margin: 1em;
-    fill: var(--_subtitle-color);
 }
 
-.tech-stack svg {
-    width: 2rem;
+.tech-stack svg,
+.tech-stack g,
+.tech-stack path {
+    width: 1.5rem;
+    fill: var(--_subtitle-color);
 }
 
 .show-more-button {
     max-width: max-content;
     padding: 0.5em 1em;
-    margin: 1em;
+    margin-block: 1em;
     background-color: var(--accent-color);
     color: white;
     text-decoration: none;
@@ -112,33 +98,3 @@
     background-color: var(--lighter-accent-color);
 }
 
-.swiper {
-    overflow-x: hidden;
-    padding: 2em 1.05em;
-}
-
-.swiper > *:not(.swiper-wrapper) {
-    position: absolute;
-}
-
-.swiper-wrapper {
-    max-width: 60vmax;   
-}
-
-.swiper-pagination > .swiper-pagination-bullet {
-    width: 15px; height: 15px;
-    opacity: 1;
-    background-color: var(--tertiary-font-color);
-}
-
-.swiper-pagination > .swiper-pagination-bullet-active {
-    background: var(--accent-color);
-    border: 3px solid var(--lighter-accent-color);
-}
-
-[class^="swiper-button"] {
-    color: var(--tertiary-font-color);
-    opacity: 0;
-    top: 0;
-    height: 200%;
-}
