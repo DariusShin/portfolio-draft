@@ -32,40 +32,4 @@ function scrollFunction() {
     }
 }
 
-// Project section
-// Carousel Slider with Swiper.js
-// Initialize Swiper
-const swiper = new Swiper('.swiper', {
-    slidesPerView: 1, // Number of slides to show at once
-    spaceBetween: 20, // Space between slides
-    // Optional: Add more configurations as needed
-    centeredSlides: true,
-    grabCursor: true,
-    loop: true,
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        dynamicBullets: true,
-        clickable: true,
-    },
-});
-
-// get handler to stop the autoplay animation when user hover over slider
-DOMS.projectDetails.forEach(detail => {
-    detail.addEventListener("mouseover", () => {
-        swiper.autoplay.stop();  // Use stop() to disable autoplay
-    });
-
-    detail.addEventListener("mouseout", () => {
-        swiper.autoplay.start();  // Use start() to enable autoplay
-    });
-});
-
 
