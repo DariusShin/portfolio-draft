@@ -1,87 +1,67 @@
 /* Skills Section */
 #skills {
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
     min-height: 100svh;
     padding-block: 1em;
 }
 
-.skills {
-    align-items: center;
-    flex-flow: column nowrap;
-    gap: 1.5em;
+#skills > .section-title {
+    margin-block: 1em;
 }
 
-.skills-container {
-    padding: 1rem;
-    width: 80%;
-    display: flex; /* Change to flexbox */
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    gap: 3em; /* Space between items */
-    flex-grow: 1; /* Add this */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items:center;
+    width: 90%;
+    margin-top: 2em;
 }
 
 .skills-content {
     background-color: var(--card-color);
+    min-width: 550px;
     border-radius: 10px;
-    box-shadow: 2px 6px 6px var(--sd-darken),
-                inset 3px 6px 6px var(--sd-highlight);
-    max-height: 150px; /* Adjust this value to match your header height */
     flex: 1 1 calc(50% - 1em); /* Take up half the width minus gap */
     box-sizing: border-box; /* Include padding and border in width calculation */
     --webkit-backdrop-filter: blur(10px);
-}
-
-.skills-content:not(.skills-close) {
-    max-height: 800px;
-}
-
-.drop-down {
-    fill: var(--accent-color);
-    transform: rotate(-180deg);
-}
-
-.skills-content > * {
-    margin: 1em;
-    color: var(--tertiary-font-color);
+    padding: 1em;
 }
 
 .skills-content .skills-header {
-    display: grid;
-    grid-template-columns: 50px 1fr 50px;
-    gap: 1em;
-    cursor: pointer;
-    transition: all 0.5s ease-out;
-}
-
-.skills-content .skills-header:hover {
-    transform: translateY(0.5rem);
-    transition: all 0.5s ease-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .skills-content .skills-header svg{
     width: 48px; height: auto;
-}
-
-.skills-content:not(:nth-child(2)) .skills-header svg{
-    fill: var(--accent-color);
-}
-
-.skills-content:nth-child(2) .skills-header svg {
-    stroke: var(--accent-color);
-}
-
-.skills-area-title {
-    font-size: clamp(1.25em, 1.25em + 0.3vmax, 1.75em);
-    color: var(--primary-font-color);
-}
-
-.skills-data {
-    margin-bottom: 1em;
+    fill: var(--lighter-accent-color);
 }
 
 .skills-title > svg {
     fill: var(--secondary-font-color);
     width: 24px;  height: auto;
+}
+
+.skills-area-title {
+    font-size: clamp(1.25em, 1.5em + 0.2vmax, 1.75em);
+    margin-block: .5em;
+    color: var(--lighter-accent-color);
+}
+
+.skills-subtitle {
+    font-size: clamp(0.75em, 0.75em + 0.2vmax, 1.25em);
+    color: var(--secondary-font-color);
+}
+
+.skills-data {
+    margin-block: 1.5em;
+    color: var(--secondary-font-color);
+    animation: skillCardReveal 1s ease-in-out both;
+    animation-timeline: view();
+    animation-range-start: cover;
+    animation-range-end: 10vh;
 }
 
 .skills-title {
@@ -112,31 +92,30 @@
 .skills-percentage {
     display: block;
     background: var(--accent-color);
-    width: 0; /* Start at 0 width */
-    transition: width 1s ease-out;
+    width: 0;
+    animation: percentageReveal 1s ease-in-out both;
+    animation-timeline: view();
+    animation-range-start: cover;
+    animation-range-end: 15vh;
+    animation-fill-mode: forwards; /* Ensure it retains the final state */
 }
 
-.skills-content:not(.skills-close) .skills-percentage {
-    width: var(--_percent);
+@keyframes percentageReveal {
+    from {
+        width: 0;
+    }
+    to {
+        width: var(--_percent);
+    }
 }
 
-.skills-list {
-    padding-left: 1rem;
-    overflow: hidden;
-    transition: opacity 0.3s ease-out, max-height 0.3s ease-out 0.3s;
-}
-
-.skills-close .drop-down {
-    transform: rotate(0deg);
-}
-
-.skills-close .skills-list {
-    max-height: 0;
-    opacity: 0;
-    transition-delay: 0s;
-}
-
-.skills-close .skills-list > * {
-    opacity: 0;
-    transition: opacity 0.3s ease-out;
+@keyframes skillCardReveal {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 100px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
 }
