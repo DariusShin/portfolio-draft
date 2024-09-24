@@ -24,12 +24,13 @@ formDOMS.form.addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent default form submission
 
     // Get form values
-    const firstname = document.getElementById('firstname').value;
-    const lastname = document.getElementById('lastname').value;
-    const subject = document.getElementById('subject').value;
-    const email = document.getElementById('email').value;
-    const details = document.getElementById('details').value;
+    const firstname = formDOMS.firstname.value;
+    const lastname = formDOMS.lastname.value;
+    const subject = formDOMS.subject.value;
+    const email = formDOMS.email.value;
+    const details = formDOMS.details.value;
 
+    // changing the text of the button and disbale it
     formDOMS.submitButton.value = 'Sending...';
     formDOMS.submitButton.disabled = true;
 
@@ -91,7 +92,6 @@ async function sendPostRequest(contactObj) {
         }
 
         const data = await response.json();
-        console.log(data);
         return data; // Return data for further processing in .then()
     } catch (error) {
         console.error('Error occurred:', error);
