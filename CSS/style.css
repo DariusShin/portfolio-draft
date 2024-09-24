@@ -1,31 +1,4 @@
 :root {
-    color-scheme: light dark; /* Allow both light and dark color scheme from system */
-    scroll-behavior: smooth;
-
-    /* Light Theme - Color Scheme*/
-    --accent-color: #5619d1;
-    --lighter-accent-color: #9e79e7a4;
-    --header-color: #FFFFFF;
-    --bg-color: #EAEFF8;
-    --bg-color-2: #d0d6df;
-    --primary-font-color: #0D0D0D;
-    --secondary-font-color: #555656;
-    --tertiary-font-color: #828486;
-    --gradient-color: linear-gradient(to right, #b89ef4, #906ce4 , #5f2dc2bf, #49268f);
-    --button-color: #ebebf6;
-    --button-hover-color: #dbdbdb;
-    --button-font-color: #F1F3F5;
-    --repeating-grid-color: #8d8d8d10;
-    --card-color: #f3f3f380;
-
-    /* shadow color */
-    --sd-highlight: #ffffff80;
-    --sd-darken: #0000001a;
-}
-
-/* For manual toggle */
-:root.dark,
-html > body.dark {
     --accent-color: #6134bd;
     --lighter-accent-color: #d1bbffae;
     --bg-color: #0b1215;
@@ -34,7 +7,7 @@ html > body.dark {
     --primary-font-color: #d6d6d6;
     --secondary-font-color: #B0B0B0;
     --tertiary-font-color: #8A8F99;
-    --gradient-color: linear-gradient(to right, #b89ef4, #906ce4 , #8252e4bf, #6a44b8);
+    --gradient-color: linear-gradient(to right, #ad94e8, #9b81d7 , #916ade, #7f51db);
     --button-color: #202225;
     --button-hover-color:#303335;
     --button-font-color: #D1D3D5;
@@ -44,6 +17,8 @@ html > body.dark {
     /* shadow color */
     --sd-highlight: #00000080;
     --sd-darken: #8b87871d;
+
+    scroll-behavior: smooth;
 }
 
 *,
@@ -107,7 +82,7 @@ body {
 }
 
 section {
-    height: 100svh;
+    min-height: 100svh;
     width: 100svw;
     background-image: repeating-linear-gradient(to right, transparent 0 49px, var(--repeating-grid-color) 49px 50px),
     repeating-linear-gradient(to bottom, transparent 0 49px, var(--repeating-grid-color) 49px 50px);
