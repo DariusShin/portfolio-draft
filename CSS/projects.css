@@ -5,8 +5,6 @@
     justify-content: flex-start; /* Align items at the start */
     gap: 1em; /* Space between items */
     padding-block: 1em; /* Vertical padding */
-    --_title-color: #ebebf6;
-    --_subtitle-color: #dbdbdb;
     --_card-gradient-color: linear-gradient(to right bottom, #141833, rgb(34, 45, 68), #1a2642, #181a33);
     min-height: 200svh;
 }
@@ -59,7 +57,7 @@
 }
 
 .project-description {
-    color: var(--_subtitle-color);
+    color: var(--secondary-font-color);
     font-size: clamp(0.4em, 0.7em + 0.3vw, 1em);
     padding: 0 1em;
     max-width: max-content;
@@ -80,7 +78,7 @@
 .tech-stack g,
 .tech-stack path {
     width: 1.5rem;
-    fill: var(--_subtitle-color);
+    fill: var(--primary-font-color);
 }
 
 .show-more-button {
@@ -88,7 +86,7 @@
     padding: 0.5em 1em;
     margin-block: 1em;
     background-color: var(--accent-color);
-    color: white;
+    color: var(--primary-font-color);
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.3s, transform 0.6s;
