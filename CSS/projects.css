@@ -4,9 +4,13 @@
     align-items: center; /* Center items horizontally */
     justify-content: flex-start; /* Align items at the start */
     gap: 1em; /* Space between items */
-    padding-block: 1em; /* Vertical padding */
     --_card-gradient-color: linear-gradient(to right bottom, #141833, rgb(34, 45, 68), #1a2642, #181a33);
     min-height: 200svh;
+    padding-block: 1em;
+}
+
+#projects > .section-title {
+    margin-block: 1em;
 }
 
 .project-container {
