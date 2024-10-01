@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Darius Portfolio Draft</title>
-
     <!--Handle links for google fonts: font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
     <!--Handle links for google fonts: icon-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
-    
+    <!-- Handle link for tab icon -->
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <!--Handle links for CSS stylesheet-->
     <link rel="stylesheet" href="./CSS/style.css">
     <link rel="stylesheet" href="./CSS/header.css">
@@ -22,8 +21,7 @@
     <link rel="stylesheet" href="./CSS/skills.css">
     <link rel="stylesheet" href="./CSS/footer.css">
     <link rel="stylesheet" href="./CSS/projects.css">
-    <link rel="stylesheet" href="./CSS/contact.css">
-    
+    <link rel="stylesheet" href="./CSS/contact.css">firebase login
 </head>
 <body>
     <header>
@@ -347,7 +345,7 @@
                         <img src="./assets/images/Projects_EZLIFE.png" alt="Project 4 Image" class="project-image">
                     </div>  
                     <div class="project-details">
-                        <h2 class="project-name">EZLife</h2>
+                        <h2 class="project-name">EZ LIFE</h2>
                         <p class="project-description">
                             EZLife is a desktop window form application aimed to aim to streamlined user experience by compounding car rental, food ordering, parcel collecting and car pooling services into one.
                         </p>
@@ -510,6 +508,25 @@
 <!--Handle links for JavaScript module-->
 <script src="./script.js"></script>
 <script src="./contact.js"></script>
+<script>
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "firebase/app";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyDwjPSCY3woq1JhTMuKdr3NsAY13iGhShQ",
+    authDomain: "portfolio-website-2aaf2.firebaseapp.com",
+    projectId: "portfolio-website-2aaf2",
+    storageBucket: "portfolio-website-2aaf2.appspot.com",
+    messagingSenderId: "469000542569",
+    appId: "1:469000542569:web:55c88a8b4072d0ddb045f8"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+</script>
 
 </body>
 </html>
