@@ -45,7 +45,8 @@ header {
     }
 
     .scroll-link {
-        font-size: clamp(0.75em, 0.8vw + 0.05em, 1em);
+        font-size: 0.8em;
+        /* font-size: clamp(0.75em, 0.8vw + 0.05em, 1em); */    
         background: linear-gradient(to right, #8d73c3, #6744ae, #400ea3) no-repeat right bottom;
         background-size: 0 4px;
         transition: background-size 0.3s;
@@ -54,19 +55,20 @@ header {
             background-position: left bottom;
             background-size: 100% 2px;
         }
-        
     }
 
     .active-link{
         background-size: 100% 2px;
         color: var(--accent-color);
-        font-size: clamp(0.85em, 1vw + 0.6em, 1.1em);
+        font-size: 1em;
+        /* font-size: clamp(0.85em, 1vw + 0.6em, 1.1em); */
     }
     
     .button-contact > span{
         color: var(--button-font-color);
         padding: 0.5em 1em;
-        font-size: clamp(0.8em, 0.8vw + 0.1em, 1em);
+        font-size: 0.8em;
+        /* font-size: clamp(0.8em, 0.8vw + 0.1em, 1em); */
         background: var(--accent-color);
         border-radius: 50px;
         transition: 0.5s ease-in-out;
@@ -74,7 +76,8 @@ header {
         &:hover {
             background-color: rgba(86, 25, 209, 0.2);
             color: var(--tertiary-font-color);
-            font-size: clamp(0.85em, 0.8vw + 0.15em, 1.05em);
+            font-size: 1em;
+            /* font-size: clamp(0.85em, 0.8vw + 0.15em, 1.05em); */
         }
     }
 }

@@ -62,7 +62,7 @@
 
 .project-description {
     color: var(--secondary-font-color);
-    font-size: clamp(0.4em, 0.7em + 0.3vw, 1em);
+    /* font-size: clamp(0.4em, 0.7em + 0.3vw, 1em); */
     padding: 0 1em;
     max-width: max-content;
 }

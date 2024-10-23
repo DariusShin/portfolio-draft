@@ -20,7 +20,7 @@
         color: var(--accent-color);
     }
 
-    .typing-text::before, 
+    /* .typing-text::before, 
     .typing-text::after {
         content: "";
         position: absolute;
@@ -33,7 +33,7 @@
     .typing-text::before {
         background-color: var(--bg-color);
         animation: auto-typing 15s steps(23) 1s infinite;
-    }
+    } */
 
     .typing-text::after {
         background-color: var(--secondary-font-color);
@@ -66,7 +66,8 @@
 
         .btn {
             box-sizing: border-box;
-            font-size: clamp(0.75em, 0.9vw + 0.1em, 1.5em);
+            font-size: 1em;
+            /* font-size: clamp(0.75em, 0.9vw + 0.1em, 1.5em); */
             padding: 10px 20px;
             border-radius: 2in;
             text-decoration: none;
