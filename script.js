@@ -2,7 +2,6 @@ const DOMS = {
     body: document.body,
     backToTopButton: document.getElementById('back-to-top'),
     scrollLinks: document.querySelectorAll('.scroll-link'),
-    darkModeMediaQuery: window.matchMedia('(prefers-color-scheme: dark)'),
     projectDetails: document.querySelectorAll('.project-details'),
 };
 
