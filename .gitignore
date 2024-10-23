@@ -1,3 +1,6 @@
 icons
 .hintrc
 assets/CV.pdf
+.firebase/
+.firebaserc
+firebase.json
